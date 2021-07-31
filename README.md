@@ -9,3 +9,14 @@ var App = new ActiveXObject( "Excel.Application" );
 var WshShell = new ActiveXObject( "WScript.Shell" );
 ```
 HTML アプリケーションでもコピペで使いたいので new ActiveXObject を使用
+```javascript
+// ****************************
+// ブックを開く
+// ****************************
+Book = App.Workbooks.Open(FilePath);
+
+// ****************************
+// 最終シートを前にコピー
+// ****************************
+Book.Sheets(Book.Sheets.Count).Copy( Book.Sheets(Book.Sheets.Count) );
+```
