@@ -29,7 +29,7 @@ if( FilePath === false ) {
 // ****************************
 // ブックを開く
 // ****************************
-Book = App.Workbooks.Open(FilePath);
+var Book = App.Workbooks.Open(FilePath);
 
 // ****************************
 // 最終シートを前にコピー
