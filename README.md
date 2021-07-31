@@ -13,7 +13,7 @@ HTML アプリケーションでもコピペで使いたいので new ActiveXObj
 // ****************************
 // ブックを開く
 // ****************************
-Book = App.Workbooks.Open(FilePath);
+var Book = App.Workbooks.Open(FilePath);
 
 // ****************************
 // 最終シートを前にコピー
