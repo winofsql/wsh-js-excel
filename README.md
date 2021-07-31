@@ -10,7 +10,7 @@ var WshShell = new ActiveXObject( "WScript.Shell" );
 ```
 HTML アプリケーションでもコピペで使いたいので new ActiveXObject を使用
 
-# 重要
+## 重要
 ```javascript
 // ****************************
 // ブックを開く
