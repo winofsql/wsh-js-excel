@@ -2,6 +2,7 @@
 ブックを参照して開いてセルに値をセットして Excel で起動
 ## add settings.json ( Code Runner )
 ```javascript
+    "code-runner.showRunIconInEditorTitleMenu": false,
     "code-runner.executorMapByFileExtension": {
         ".wsf": "cscript //Nologo"
     }
