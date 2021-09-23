@@ -4,6 +4,5 @@
     "code-runner.executorMapByFileExtension": {
         ".wsf": "cscript //Nologo"
     },
-    "terminal.integrated.fontSize": 16,
-    "files.encoding": "shiftjis"
+    "terminal.integrated.fontSize": 16
 }
