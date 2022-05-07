@@ -1,6 +1,3 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<job>
-<script language="JScript">
 var App = new ActiveXObject("Excel.Application");
 var WshShell = new ActiveXObject( "WScript.Shell" );
 
@@ -29,5 +26,3 @@ else {
 App.Quit();
 
 App = null;
-</script>
-</job>
