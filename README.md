@@ -22,3 +22,12 @@ var Book = App.Workbooks.Open(FilePath);
 // ****************************
 Book.Sheets(Book.Sheets.Count).Copy( Book.Sheets(Book.Sheets.Count) );
 ```
+
+## 重要
+```javascript
+// セルに値をセット
+Book.Sheets(1).Cells(1, 1).Value = "社員名";
+Book.Sheets(1).Cells(2, 1).Value = "山田　太郎甚左衛門";
+Book.Sheets(1).Cells(3, 1).Value = "鈴木　一郎";
+Book.Sheets(1).Cells(4, 1).Value = "佐藤　洋子";
+```
