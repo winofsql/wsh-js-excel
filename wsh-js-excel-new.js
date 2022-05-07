@@ -1,6 +1,3 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<job>
-<script language="JScript">
 // ****************************
 // 初期処理
 // ****************************
@@ -69,5 +66,3 @@ App.Quit();
 App = null;
 
 WshShell.Run( "RunDLL32.EXE shell32.dll,ShellExec_RunDLL " + FilePath );
-</script>
-</job>
