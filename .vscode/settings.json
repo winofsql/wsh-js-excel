@@ -1,8 +1,0 @@
-{
-    "code-runner.showRunIconInEditorTitleMenu": true,
-    "code-runner.runInTerminal": true,
-    "code-runner.executorMapByFileExtension": {
-        ".wsf": "cscript //Nologo"
-    },
-    "terminal.integrated.fontSize": 16
-}
