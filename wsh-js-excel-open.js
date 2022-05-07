@@ -1,69 +1,69 @@
 var App = new ActiveXObject("Excel.Application");
 var WshShell = new ActiveXObject( "WScript.Shell" );
 
-// Excel ã‚’è¡¨ç¤º( å®Œæˆã—ãŸã‚‰ã‚³ãƒ¡ãƒ³ãƒˆåŒ– )
+// Excel ‚ğ•\¦( Š®¬‚µ‚½‚çƒRƒƒ“ƒg‰» )
 App.Visible = true;
-// è­¦å‘Šã‚’å‡ºã•ãªã„
+// Œx‚ğo‚³‚È‚¢
 App.DisplayAlerts = false;
 
-// Minimize : GetSaveAsFilename ã‚’å‰é¢ã«å‡ºã™ç‚º
-// æœ¬æ¥ã€-4140 ã§ã™ãŒ WScript.Shell ã® Run ã¨åŒã˜ 2 ãŒä½¿ãˆã‚‹
+// Minimize : GetSaveAsFilename ‚ğ‘O–Ê‚Éo‚·ˆ×
+// –{—ˆA-4140 ‚Å‚·‚ª WScript.Shell ‚Ì Run ‚Æ“¯‚¶ 2 ‚ªg‚¦‚é
 App.WindowState = 2
 
 // ****************************
-// ä¸€ã¤ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã
+// ˆê‚Â‚Ìƒtƒ@ƒCƒ‹‚ğŠJ‚­
 // ****************************
 // https://docs.microsoft.com/ja-jp/office/vba/api/excel.application.getopenfilename
-var FilePath = App.GetOpenFilename("Excel ãƒ•ã‚¡ã‚¤ãƒ« (*.xlsx), *.xlsx,å…¨ã¦,*.*", 1,"ãƒ•ã‚¡ã‚¤ãƒ«ã®é¸æŠ",null, false );
-// æœªé¸æŠã®å ´åˆ
+var FilePath = App.GetOpenFilename("Excel ƒtƒ@ƒCƒ‹ (*.xlsx), *.xlsx,‘S‚Ä,*.*", 1,"ƒtƒ@ƒCƒ‹‚Ì‘I‘ğ",null, false );
+// –¢‘I‘ğ‚Ìê‡
 if( FilePath === false ) {
-    WshShell.Popup("ãƒ•ã‚¡ã‚¤ãƒ«ã®å‚ç…§é¸æŠãŒã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚Œã¾ã—ãŸ")
+    WshShell.Popup("ƒtƒ@ƒCƒ‹‚ÌQÆ‘I‘ğ‚ªƒLƒƒƒ“ƒZƒ‹‚³‚ê‚Ü‚µ‚½")
     App.Quit();
     App = null;
     WScript.Quit();
 }
 
 // ****************************
-// ãƒ–ãƒƒã‚¯ã‚’é–‹ã
+// ƒuƒbƒN‚ğŠJ‚­
 // ****************************
 var Book = App.Workbooks.Open(FilePath);
 
 // ****************************
-// æœ€çµ‚ã‚·ãƒ¼ãƒˆã‚’å‰ã«ã‚³ãƒ”ãƒ¼
+// ÅIƒV[ƒg‚ğ‘O‚ÉƒRƒs[
 // ****************************
 Book.Sheets(Book.Sheets.Count).Copy( Book.Sheets(Book.Sheets.Count) );
 
-// ã‚³ãƒ”ãƒ¼ã—ãŸã®ã§ ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã«ãªã‚Šã¾ã™
+// ƒRƒs[‚µ‚½‚Ì‚Å ƒAƒNƒeƒBƒu‚É‚È‚è‚Ü‚·
 var Target = Book.ActiveSheet;
 
-// å…ˆé ­åˆ—ã‚’æ–‡å­—åˆ—ã«è¨­å®š
+// æ“ª—ñ‚ğ•¶š—ñ‚Éİ’è
 Target.Range("A:A").NumberFormatLocal = "@";
 
-// ã‚»ãƒ«ã«å€¤ã‚’ã‚»ãƒƒãƒˆ
-Target.Cells(1, 1).Value = "ç¤¾å“¡ã‚³ãƒ¼ãƒ‰";
+// ƒZƒ‹‚É’l‚ğƒZƒbƒg
+Target.Cells(1, 1).Value = "ĞˆõƒR[ƒh";
 Target.Cells(2, 1).Value = "0001"
 Target.Cells(3, 1).Value = "0002";
 Target.Cells(4, 1).Value = "0003";
-Target.Cells(1, 2).Value = "ç¤¾å“¡å";
-Target.Cells(2, 2).Value = "å±±ç”°ã€€å¤ªéƒç”šå·¦è¡›é–€";
-Target.Cells(3, 2).Value = "éˆ´æœ¨ã€€ä¸€éƒ";
-Target.Cells(4, 2).Value = "ä½è—¤ã€€æ´‹å­";
+Target.Cells(1, 2).Value = "Ğˆõ–¼";
+Target.Cells(2, 2).Value = "R“c@‘¾˜Yr¶‰q–å";
+Target.Cells(3, 2).Value = "—é–Ø@ˆê˜Y";
+Target.Cells(4, 2).Value = "²“¡@—mq";
 
-// åˆ—å¹…è‡ªå‹•èª¿æ•´
+// —ñ•©“®’²®
 Target.Columns("B:B").EntireColumn.AutoFit();
 
 // ****************************
-// ä¿å­˜
+// •Û‘¶
 // ****************************
 try {
     Book.SaveAs( FilePath );
     Book.Close();
 }
 catch (error) {
-    WshShell.Popup( "Book.SaveAs ã§ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸ : " + error.description );
+    WshShell.Popup( "Book.SaveAs ‚ÅƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½ : " + error.description );
 }
 
-// çµ‚äº†
+// I—¹
 App.Quit();
 
 App = null;

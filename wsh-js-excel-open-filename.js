@@ -1,28 +1,28 @@
 var App = new ActiveXObject("Excel.Application");
 var WshShell = new ActiveXObject( "WScript.Shell" );
 
-// Excel ã‚’è¡¨ç¤º( å®Œæˆã—ãŸã‚‰ã‚³ãƒ¡ãƒ³ãƒˆåŒ– )
+// Excel ‚ğ•\¦( Š®¬‚µ‚½‚çƒRƒƒ“ƒg‰» )
 App.Visible = true;
-// è­¦å‘Šã‚’å‡ºã•ãªã„
+// Œx‚ğo‚³‚È‚¢
 App.DisplayAlerts = false;
 
-// Minimize : GetSaveAsFilename ã‚’å‰é¢ã«å‡ºã™ç‚º
-// æœ¬æ¥ã€-4140 ã§ã™ãŒ WScript.Shell ã® Run ã¨åŒã˜ 2 ãŒä½¿ãˆã‚‹
+// Minimize : GetSaveAsFilename ‚ğ‘O–Ê‚Éo‚·ˆ×
+// –{—ˆA-4140 ‚Å‚·‚ª WScript.Shell ‚Ì Run ‚Æ“¯‚¶ 2 ‚ªg‚¦‚é
 App.WindowState = 2
 
-// ä¸€ã¤ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã
+// ˆê‚Â‚Ìƒtƒ@ƒCƒ‹‚ğŠJ‚­
 // https://docs.microsoft.com/ja-jp/office/vba/api/excel.application.getopenfilename
-var filePath = App.GetOpenFilename("å…¨ã¦,*.*,CSV,*.csv", 1,"ãƒ•ã‚¡ã‚¤ãƒ«ã®é¸æŠ",null, false );
-// æœªé¸æŠã®å ´åˆ
+var filePath = App.GetOpenFilename("‘S‚Ä,*.*,CSV,*.csv", 1,"ƒtƒ@ƒCƒ‹‚Ì‘I‘ğ",null, false );
+// –¢‘I‘ğ‚Ìê‡
 if( filePath === false ) {
-    WshShell.Popup("ãƒ•ã‚¡ã‚¤ãƒ«ã®å‚ç…§é¸æŠãŒã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚Œã¾ã—ãŸ")
+    WshShell.Popup("ƒtƒ@ƒCƒ‹‚ÌQÆ‘I‘ğ‚ªƒLƒƒƒ“ƒZƒ‹‚³‚ê‚Ü‚µ‚½")
 }
-// é¸æŠã®å ´åˆ
+// ‘I‘ğ‚Ìê‡
 else {
-    WshShell.Popup(filePath + " ã‚’é¸æŠã—ã¾ã—ãŸ");
+    WshShell.Popup(filePath + " ‚ğ‘I‘ğ‚µ‚Ü‚µ‚½");
 }
 
-// çµ‚äº†
+// I—¹
 App.Quit();
 
 App = null;
