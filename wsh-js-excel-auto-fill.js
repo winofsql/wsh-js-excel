@@ -1,51 +1,51 @@
 // ****************************
-// 初期処理
+// ��������
 // ****************************
-WScript.Echo( "処理を開始します" );
+WScript.Echo( "�������J�n���܂�" );
 var WshShell = new ActiveXObject("WScript.Shell");
 var ExcelApp = new ActiveXObject( "Excel.Application" );
 
-// デバッグ時は、Excel の本体を表示させて状況が解るようにする
+// �f�o�b�O���́AExcel �̖{�̂�\�������ď󋵂�����悤�ɂ���
 ExcelApp.Visible = true;
-// UI でチェックさせるようなダイアログを表示せずに実行する
+// UI �Ń`�F�b�N������悤�ȃ_�C�A���O��\�������Ɏ��s����
 ExcelApp.DisplayAlerts = false;
 
 try {
 
 	// ****************************
-	// ブック追加
+	// �u�b�N�ǉ�
 	// ****************************
 	var Book = ExcelApp.Workbooks.Add();
 
-	// 通常一つのシートが作成されています
+	// �ʏ��̃V�[�g���쐬����Ă��܂�
 	var Sheet = Book.Worksheets( 1 );
 
 	// ****************************
-	// シート名変更
+	// �V�[�g���ύX
 	// ****************************
-	Sheet.Name = "JScriptの処理";
+	Sheet.Name = "JScript�̏���";
 
 	// ****************************
-	// セルに値を直接セット
+	// �Z���ɒl�𒼐ڃZ�b�g
 	// ****************************
 	for( var i = 1; i <= 10; i++ )
 	{
-		Sheet.Cells(i, 1) = "処理 : " + i;
+		Sheet.Cells(i, 1) = "���� : " + i;
 	}
 
 	// ****************************
-	// 1つのセルから
-	// AutoFill で値をセット
+	// 1�̃Z������
+	// AutoFill �Œl���Z�b�g
 	// ****************************
-	Sheet.Cells(1, 2) = "子";
-	// 基となるセル範囲
+	Sheet.Cells(1, 2) = "�q";
+	// ��ƂȂ�Z���͈�
 	var SourceRange = Sheet.Range(Sheet.Cells(1, 2), Sheet.Cells(1,2));
-	// オートフィルの範囲(基となるセル範囲を含む )
+	// �I�[�g�t�B���͈̔�(��ƂȂ�Z���͈͂��܂� )
 	var FillRange = Sheet.Range(Sheet.Cells(1, 2), Sheet.Cells(10,2));
 	SourceRange.AutoFill(FillRange);
 
 	// ****************************
-	// 保存
+	// �ۑ�
 	// ****************************
 	Book.SaveAs( WshShell.CurrentDirectory + "\\sample.xlsx" );
  
@@ -60,6 +60,6 @@ ExcelApp.Quit();
 ExcelApp = null;
 
 // ****************************
-// ファイルの最後
+// �t�@�C���̍Ō�
 // ****************************
-WshShell.Popup("処理を終了します");
+WshShell.Popup("�������I�����܂�");
