@@ -1,6 +1,3 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<job>
-<script language="JScript">
 var App = new ActiveXObject("Excel.Application");
 var WshShell = new ActiveXObject( "WScript.Shell" );
 
@@ -72,5 +69,3 @@ App.Quit();
 App = null;
 
 WshShell.Run( "RunDLL32.EXE shell32.dll,ShellExec_RunDLL " + FilePath );
-</script>
-</job>
